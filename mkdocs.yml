@@ -1,0 +1,216 @@
+# PostgreSQL DBA Knowledge Base — MkDocs Material site config
+# Build: .\scripts\build-docs.ps1
+
+site_name: PostgreSQL DBA Guide
+site_description: Comprehensive PostgreSQL 18 reference for DBAs — by InfraYantra Labs
+site_author: InfraYantra Labs
+site_url: https://infrayantra.github.io/postgresql-dba-guide/
+
+repo_url: https://github.com/infrayantra/postgresql-dba-guide
+repo_name: GitHub
+edit_uri: edit/main/docs-content/
+
+docs_dir: docs-content
+site_dir: site
+
+copyright: Copyright &copy; 2026 <a href="https://infrayantra.com/" target="_blank" rel="noopener">InfraYantra Labs</a> · PostgreSQL 18
+
+theme:
+  name: material
+  language: en
+  logo: assets/infrayantra-labs-icon.jpeg
+  favicon: assets/infrayantra-labs-logo.jpeg
+  font:
+    text: IBM Plex Sans
+    code: JetBrains Mono
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: light-blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
+
+plugins:
+  - search
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  generator: false
+  announcement: "<strong>PostgreSQL 18</strong> · 81 production guides &nbsp;|&nbsp; InfraYantra Labs Knowledge Base"
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://infrayantra.com/
+      name: InfraYantra Labs
+    - icon: fontawesome/solid/envelope
+      link: mailto:admin@infrayantra.com
+      name: Contact
+    - icon: fontawesome/solid/book
+      link: https://www.postgresql.org/docs/18/
+      name: PostgreSQL 18 Docs
+    - icon: fontawesome/solid/download
+      link: https://www.postgresql.org/download/
+      name: Downloads
+
+nav:
+  - Home: README.md
+  - Index: INDEX.md
+  - Version Policy: VERSION.md
+  - Website Guide: WEBSITE.md
+  - GitHub Pages Deploy: GITHUB-PAGES.md
+  - Getting Started:
+      - 01-getting-started/installation.md
+      - 01-getting-started/official-download-links.md
+      - 01-getting-started/install-linux.md
+      - 01-getting-started/install-windows.md
+      - 01-getting-started/install-docker.md
+      - 01-getting-started/install-kubernetes.md
+      - 01-getting-started/install-dbaas.md
+      - 01-getting-started/postgresql-18.md
+      - 01-getting-started/postgresql-history-and-releases.md
+      - 01-getting-started/architecture.md
+      - 01-getting-started/logical-vs-physical.md
+      - 01-getting-started/version-history.md
+  - Configuration:
+      - 02-configuration/postgresql-conf.md
+      - 02-configuration/data-directory.md
+      - 02-configuration/backup-archive-directories.md
+      - 02-configuration/log-directory.md
+      - 02-configuration/pg-hba-conf.md
+      - 02-configuration/pg-ident-conf.md
+  - Administration:
+      - 03-administration/production-cluster-layout.md
+      - 03-administration/capacity-planning.md
+      - 03-administration/cluster-management.md
+      - 03-administration/user-roles.md
+      - 03-administration/databases-schemas.md
+      - 03-administration/tablespaces.md
+  - Backup & Recovery:
+      - 04-backup-recovery/logical-backup.md
+      - 04-backup-recovery/physical-backup.md
+      - 04-backup-recovery/pg-basebackup.md
+      - 04-backup-recovery/pg-backrest.md
+      - 04-backup-recovery/point-in-time-recovery.md
+      - 04-backup-recovery/dc-dr-drill.md
+  - Replication & HA:
+      - 05-replication-ha/postgresql-18-ha-setup-runbook.md
+      - 05-replication-ha/replication-slots.md
+      - 05-replication-ha/streaming-replication.md
+      - 05-replication-ha/logical-replication.md
+      - 05-replication-ha/failover.md
+      - 05-replication-ha/patroni-pgpool.md
+  - Performance:
+      - 06-performance/in-memory-features-integration.md
+      - 06-performance/tuning-parameters.md
+      - 06-performance/pgbench.md
+      - 06-performance/session-timeouts.md
+      - 06-performance/vacuum-bloat.md
+      - 06-performance/indexing.md
+      - 06-performance/query-optimization.md
+  - Monitoring:
+      - 07-monitoring/dba-health-checks.md
+      - 07-monitoring/system-catalogs.md
+      - 07-monitoring/pg-stat-statements.md
+      - 07-monitoring/logging.md
+      - 07-monitoring/metrics-exporters.md
+  - Security:
+      - 08-security/authentication.md
+      - 08-security/encryption-methods.md
+      - 08-security/encryption.md
+      - 08-security/ssl-tls-implementation.md
+      - 08-security/tde-implementation.md
+      - 08-security/row-level-security.md
+      - 08-security/auditing.md
+  - Maintenance:
+      - 09-maintenance/dba-runbook-checklists.md
+      - 09-maintenance/vacuum-analyze.md
+      - 09-maintenance/autovacuum.md
+      - 09-maintenance/major-version-upgrade.md
+      - 09-maintenance/upgrades.md
+  - Advanced:
+      - 10-advanced/partitioning.md
+      - 10-advanced/extensions.md
+      - 10-advanced/pgvector.md
+      - 10-advanced/pgaudit.md
+      - 10-advanced/pg-cron-agent.md
+      - 10-advanced/creating-extensions.md
+      - 10-advanced/locking-concurrency.md
+      - 10-advanced/wal-internals.md
+      - 10-advanced/connection-pooling.md
+  - Troubleshooting:
+      - 11-troubleshooting/investigation-runbook.md
+      - 11-troubleshooting/common-errors.md
+      - 11-troubleshooting/slow-queries.md
+      - 11-troubleshooting/corruption-recovery.md
+  - Cheat Sheets:
+      - cheat-sheets/README.md
+      - cheat-sheets/psql-reference.md
+      - cheat-sheets/psql-commands.md
+      - cheat-sheets/admin-sql.md
+      - cheat-sheets/parameters-quick-ref.md
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - tables
