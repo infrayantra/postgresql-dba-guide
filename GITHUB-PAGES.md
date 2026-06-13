@@ -56,15 +56,16 @@ repo_url: https://github.com/infrayantra/postgresql-dba-guide
 
 ## Part 2 — Enable GitHub Pages (GitHub Actions)
 
-This repo includes `.github/workflows/docs.yml` — it builds MkDocs on every push to `main`.
+This repo uses **one** workflow: `.github/workflows/docs.yml`. It builds MkDocs and deploys the `./site` folder via GitHub Actions.
 
 1. On GitHub, open your repo → **Settings**
 2. Left menu → **Pages**
 3. Under **Build and deployment**:
-   - **Source:** `GitHub Actions` (not “Deploy from branch”)
-4. Push to `main` (or run workflow manually):
+   - **Source:** `GitHub Actions`
+4. If GitHub created a default `static.yml` workflow, **delete it** — it deploys raw markdown (no build) and causes a 404.
+5. Push to `main` (or run workflow manually):
    - **Actions** tab → **Deploy documentation site** → **Run workflow**
-5. Wait 2–5 minutes. When green, your site is at:
+6. Wait 2–5 minutes. When green, your site is at:
    ```
    https://infrayantra.github.io/postgresql-dba-guide/
    ```
@@ -149,9 +150,43 @@ Local preview before push:
 
 ## Troubleshooting
 
+### “Do you want to fork this repository?” (GitHub Desktop)
+
+This appears when GitHub Desktop is signed in as an account that **cannot push** to `infrayantra/postgresql-dba-guide` (for example `pratush-intellidb`).
+
+**Click Cancel — do not fork** if you want the site at:
+
+`https://infrayantra.github.io/postgresql-dba-guide/`
+
+Forking creates `pratush-intellidb/postgresql-dba-guide` and Pages would live under your personal account URL instead.
+
+**Fix (pick one):**
+
+1. **Grant write access** (recommended) — as an `infrayantra` org owner, open  
+   https://github.com/infrayantra/postgresql-dba-guide/settings/access  
+   → **Add people** → invite `pratush-intellidb` with **Write** (or make them an org member with push rights).
+
+2. **Sign in as the right account** — GitHub Desktop → **File → Options → Accounts** → sign in as the user that owns or administers the `infrayantra` org, then **Publish branch** again.
+
+3. **Refresh credentials** — if push fails with “Invalid username or token”, sign out/in in GitHub Desktop or create a [Personal Access Token](https://github.com/settings/tokens) (scope: `repo`) and use it when prompted.
+
+After access works, publish from your local clone (e.g. `C:\personals\GitHub\postgresql-dba-guide`):
+
+```powershell
+git push -u origin main
+```
+
+Then enable Pages (Part 2 below).
+
+### Two workflows / site still 404 after green checkmark
+
+GitHub may auto-create `.github/workflows/static.yml` when you enable Pages. That workflow uploads the **entire repo** (no MkDocs build), so there is no `index.html` at the site root → **404**.
+
+**Fix:** Keep only `docs.yml` (builds MkDocs → deploys `./site`). Delete `static.yml`. Re-run **Deploy documentation site**.
+
 | Problem | Fix |
 |---------|-----|
-| Pages shows 404 | Settings → Pages → Source must be **GitHub Actions**; check Actions log |
+| Pages shows 404 | Source = **GitHub Actions**; delete `static.yml`; only `docs.yml` should deploy `./site` |
 | CSS/search broken | Set correct `site_url` in `mkdocs.yml` (must match final URL, trailing slash) |
 | Logo missing | Ensure `assets/infrayantra-labs-logo.jpeg` is committed; sync copies it to build |
 | Workflow failed | Actions tab → click failed run → read Python/MkDocs error |
