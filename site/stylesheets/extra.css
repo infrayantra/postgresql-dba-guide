@@ -1,35 +1,351 @@
-/* PostgreSQL DBA Knowledge Base — InfraYantra Labs branding */
+/* ==========================================================================
+   PostgreSQL DBA Knowledge Base — InfraYantra Labs
+   Scientific / technical documentation theme
+   ========================================================================== */
 
 :root {
-  /* InfraYantra Labs indigo (from logo) */
-  --md-primary-fg-color:        #28248c;
-  --md-primary-fg-color--light: #3d38a8;
-  --md-primary-fg-color--dark:  #1a1760;
-  --md-accent-fg-color:         #4a90d9;
+  /* Brand — InfraYantra indigo from logo */
+  --iyl-indigo:        #28248c;
+  --iyl-indigo-light:  #3d38a8;
+  --iyl-indigo-dark:   #1a1760;
+  --iyl-teal:          #0ea5a0;
+  --iyl-teal-dim:      #0d9488;
+  --iyl-slate:         #1e293b;
+  --iyl-paper:         #f8fafc;
+  --iyl-grid:          rgba(40, 36, 140, 0.06);
+  --iyl-grid-dark:     rgba(148, 163, 184, 0.08);
+
+  --md-primary-fg-color:        var(--iyl-indigo);
+  --md-primary-fg-color--light: var(--iyl-indigo-light);
+  --md-primary-fg-color--dark:  var(--iyl-indigo-dark);
+  --md-accent-fg-color:         var(--iyl-teal);
+  --md-default-bg-color:        var(--iyl-paper);
+  --md-typeset-a-color:         var(--iyl-indigo-light);
+
+  --md-logo-height: 3.25rem;
+  --md-header-height: 4rem;
 }
 
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color:        #3d38a8;
+  --md-primary-fg-color:        var(--iyl-indigo-light);
   --md-primary-fg-color--light: #524dc4;
-  --md-primary-fg-color--dark:  #28248c;
+  --md-primary-fg-color--dark:  var(--iyl-indigo);
+  --md-accent-fg-color:         #38bdf8;
+  --md-default-bg-color:        #0f172a;
+  --md-typeset-a-color:         #7dd3fc;
+  --iyl-grid:                   var(--iyl-grid-dark);
 }
 
-/* Logo in header — square logo with text */
-.md-header__button.md-logo img,
+/* --------------------------------------------------------------------------
+   Announcement bar
+   -------------------------------------------------------------------------- */
+.md-banner {
+  background: linear-gradient(90deg, var(--iyl-indigo-dark) 0%, var(--iyl-indigo) 50%, var(--iyl-indigo-light) 100%);
+  font-family: var(--md-code-font), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.md-banner__inner {
+  margin: 0 auto;
+  max-width: 61rem;
+}
+
+.iyl-announce-sep {
+  margin: 0 0.75rem;
+  opacity: 0.45;
+}
+
+/* --------------------------------------------------------------------------
+   Header & logo
+   -------------------------------------------------------------------------- */
+.md-header {
+  background: linear-gradient(180deg, var(--iyl-indigo-dark) 0%, var(--iyl-indigo) 100%);
+  box-shadow: 0 2px 12px rgba(26, 23, 96, 0.35);
+}
+
+.md-header__button.md-logo {
+  margin: 0 0.6rem 0 0;
+  padding: 0.25rem;
+}
+
+.md-header__button.md-logo img {
+  height: var(--md-logo-height);
+  width: var(--md-logo-height);
+  border-radius: 0.45rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  object-fit: cover;
+}
+
+.md-header__title {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.md-header__topic:first-child {
+  font-size: 0.95rem;
+}
+
+/* Sidebar — full brand logo, larger */
+.md-nav__button.md-logo {
+  margin: 0.5rem 0 1rem;
+  padding: 0;
+}
+
 .md-nav__button.md-logo img {
-  height: 2.25rem;
-  width: auto;
+  content: url("../assets/infrayantra-labs-logo.jpeg");
+  height: auto;
+  width: min(11rem, 85%);
+  max-height: none;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   Tab navigation — lab instrument panel feel
+   -------------------------------------------------------------------------- */
+.md-tabs {
+  background: var(--iyl-indigo-dark);
+  border-bottom: 2px solid var(--iyl-teal);
+}
+
+.md-tabs__link {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  opacity: 0.82;
+  transition: opacity 0.15s, border-color 0.15s;
+}
+
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  opacity: 1;
+}
+
+.md-tabs__item--active .md-tabs__link {
+  border-bottom: 2px solid var(--iyl-teal);
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   Content area — subtle scientific grid
+   -------------------------------------------------------------------------- */
+.md-main__inner {
+  margin-top: 0;
+}
+
+.md-content {
+  background-image:
+    linear-gradient(var(--iyl-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--iyl-grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: center top;
+}
+
+.md-content__inner {
+  padding-top: 1.5rem;
+}
+
+/* Typography — precise, readable */
+.md-typeset {
+  font-size: 0.84rem;
+  line-height: 1.72;
+}
+
+.md-typeset h1 {
+  color: var(--iyl-indigo-dark);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  border-bottom: 3px solid var(--iyl-teal);
+  padding-bottom: 0.35em;
+  margin-bottom: 1.2em;
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  color: #e2e8f0;
+}
+
+.md-typeset h2 {
+  font-weight: 600;
+  border-left: 4px solid var(--iyl-teal);
+  padding-left: 0.65em;
+  margin-top: 2em;
+}
+
+.md-typeset h3 {
+  font-weight: 600;
+  color: var(--iyl-indigo-light);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h3 {
+  color: #94a3b8;
+}
+
+/* --------------------------------------------------------------------------
+   Tables — data sheet styling
+   -------------------------------------------------------------------------- */
+.md-typeset table:not([class]) {
+  font-size: 0.82rem;
+  border: 1px solid rgba(40, 36, 140, 0.15);
+  border-radius: 0.35rem;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.md-typeset table:not([class]) thead {
+  background: linear-gradient(180deg, var(--iyl-indigo) 0%, var(--iyl-indigo-dark) 100%);
+}
+
+.md-typeset table:not([class]) thead th {
+  color: #fff;
+  font-family: var(--md-code-font), monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-bottom: none;
+}
+
+.md-typeset table:not([class]) tbody tr:nth-child(even) {
+  background: rgba(40, 36, 140, 0.04);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tbody tr:nth-child(even) {
+  background: rgba(148, 163, 184, 0.06);
+}
+
+.md-typeset table:not([class]) td strong {
+  color: var(--iyl-indigo);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) td strong {
+  color: #7dd3fc;
+}
+
+/* Home page summary table — spec card row */
+.md-typeset > table:first-of-type {
+  border: 2px solid var(--iyl-teal-dim);
+}
+
+/* --------------------------------------------------------------------------
+   Code blocks — terminal / lab notebook
+   -------------------------------------------------------------------------- */
+.md-typeset pre {
+  border: 1px solid rgba(40, 36, 140, 0.12);
+  border-left: 4px solid var(--iyl-teal);
+  border-radius: 0 0.35rem 0.35rem 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .md-typeset pre > code {
   font-size: 0.78em;
 }
 
-.md-typeset table:not([class]) {
-  font-size: 0.85em;
+.md-typeset code {
+  background: rgba(40, 36, 140, 0.07);
+  border-radius: 0.2em;
+  padding: 0.05em 0.35em;
 }
 
-/* InfraYantra footer link */
-.md-footer-meta md-footer-meta__inner a {
-  color: var(--md-accent-fg-color);
+[data-md-color-scheme="slate"] .md-typeset code {
+  background: rgba(56, 189, 248, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   Admonitions — lab callout panels
+   -------------------------------------------------------------------------- */
+.md-typeset .admonition {
+  border-radius: 0.35rem;
+  border-left-width: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.md-typeset .admonition-title {
+  font-family: var(--md-code-font), monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Sidebar navigation
+   -------------------------------------------------------------------------- */
+.md-nav__link--active {
+  font-weight: 600;
+  color: var(--iyl-indigo) !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link--active {
+  color: var(--iyl-teal) !important;
+}
+
+.md-nav__item .md-nav__link:hover {
+  color: var(--iyl-teal-dim);
+}
+
+.md-sidebar--primary {
+  border-right: 1px solid rgba(40, 36, 140, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   Search
+   -------------------------------------------------------------------------- */
+.md-search__form {
+  border-radius: 0.35rem;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.md-search__input {
+  font-family: var(--md-code-font), monospace;
+  font-size: 0.82rem;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+.md-footer {
+  background: var(--iyl-indigo-dark);
+}
+
+.md-footer-meta {
+  background: #12103a;
+}
+
+.md-footer-meta__inner a {
+  color: var(--iyl-teal);
+}
+
+.md-social__link:hover {
+  color: var(--iyl-teal);
+}
+
+/* --------------------------------------------------------------------------
+   TOC & breadcrumbs
+   -------------------------------------------------------------------------- */
+.md-nav--secondary .md-nav__title {
+  font-family: var(--md-code-font), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive — keep logo readable on mobile
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 76.1875em) {
+  :root {
+    --md-logo-height: 2.75rem;
+  }
+
+  .md-nav__button.md-logo img {
+    width: min(9rem, 75%);
+  }
+}
+
+@media screen and (max-width: 59.9375em) {
+  :root {
+    --md-logo-height: 2.5rem;
+    --md-header-height: 3.5rem;
+  }
 }

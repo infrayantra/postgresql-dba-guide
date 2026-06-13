@@ -12,6 +12,8 @@
         <meta name="author" content="InfraYantra Labs">
       
       
+        <link rel="canonical" href="https://infrayantra.github.io/postgresql-dba-guide/GITHUB-PAGES/">
+      
       
         <link rel="prev" href="../WEBSITE/">
       
@@ -27,7 +29,7 @@
     
     
       
-        <title>GitHub Pages Deploy - PostgreSQL DBA Knowledge Base</title>
+        <title>GitHub Pages Deploy - PostgreSQL DBA Guide</title>
       
     
     
@@ -48,10 +50,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"JetBrains Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -69,7 +73,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="blue">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="cyan">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -94,9 +98,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="PostgreSQL DBA Knowledge Base" class="md-header__button md-logo" aria-label="PostgreSQL DBA Knowledge Base" data-md-component="logo">
+    <a href=".." title="PostgreSQL DBA Guide" class="md-header__button md-logo" aria-label="PostgreSQL DBA Guide" data-md-component="logo">
       
-  <img src="../assets/infrayantra-labs-logo.jpeg" alt="logo">
+  <img src="../assets/infrayantra-labs-icon.jpeg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -107,7 +111,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            PostgreSQL DBA Knowledge Base
+            PostgreSQL DBA Guide
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -126,20 +130,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="blue"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="cyan"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="light-blue"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
       </label>
     
   
@@ -198,6 +202,18 @@
 </div>
       
     
+    
+      <div class="md-header__source">
+        <a href="https://github.com/infrayantra/postgresql-dba-guide" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
     
   </nav>
   
@@ -572,13 +588,25 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="PostgreSQL DBA Knowledge Base" class="md-nav__button md-logo" aria-label="PostgreSQL DBA Knowledge Base" data-md-component="logo">
+    <a href=".." title="PostgreSQL DBA Guide" class="md-nav__button md-logo" aria-label="PostgreSQL DBA Guide" data-md-component="logo">
       
-  <img src="../assets/infrayantra-labs-logo.jpeg" alt="logo">
+  <img src="../assets/infrayantra-labs-icon.jpeg" alt="logo">
 
     </a>
-    PostgreSQL DBA Knowledge Base
+    PostgreSQL DBA Guide
   </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/infrayantra/postgresql-dba-guide" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -1015,7 +1043,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    Installation &amp; Initialization — Overview
   
 
     
@@ -1043,7 +1071,7 @@
   <span class="md-ellipsis">
     
   
-    Official Downloads
+    Official Download Links — PostgreSQL, pgAdmin &amp; Tools
   
 
     
@@ -1071,7 +1099,7 @@
   <span class="md-ellipsis">
     
   
-    Linux Install
+    PostgreSQL on Linux — Deep Install Guide
   
 
     
@@ -1099,7 +1127,7 @@
   <span class="md-ellipsis">
     
   
-    Windows Install
+    PostgreSQL on Windows — Install &amp; Dev Setup
   
 
     
@@ -1127,7 +1155,7 @@
   <span class="md-ellipsis">
     
   
-    Docker
+    PostgreSQL on Docker
   
 
     
@@ -1155,7 +1183,7 @@
   <span class="md-ellipsis">
     
   
-    Kubernetes
+    PostgreSQL on Kubernetes
   
 
     
@@ -1183,7 +1211,7 @@
   <span class="md-ellipsis">
     
   
-    DBaaS / Managed
+    PostgreSQL as a Service (DBaaS / Managed)
   
 
     
@@ -1211,7 +1239,7 @@
   <span class="md-ellipsis">
     
   
-    PostgreSQL 18 Features
+    PostgreSQL 18 — DBA Reference
   
 
     
@@ -1239,7 +1267,7 @@
   <span class="md-ellipsis">
     
   
-    History & Enterprise vs OSS
+    PostgreSQL History, Release Cycle &amp; Enterprise vs Open Source
   
 
     
@@ -1267,7 +1295,7 @@
   <span class="md-ellipsis">
     
   
-    Architecture
+    Architecture &amp; Internals
   
 
     
@@ -1295,7 +1323,7 @@
   <span class="md-ellipsis">
     
   
-    Logical vs Physical
+    Logical vs Physical — Replication &amp; Backup
   
 
     
@@ -1323,7 +1351,7 @@
   <span class="md-ellipsis">
     
   
-    Version History
+    Version History &amp; Upgrade Paths
   
 
     
@@ -1412,7 +1440,7 @@
   <span class="md-ellipsis">
     
   
-    postgresql.conf
+    postgresql.conf — Main Configuration
   
 
     
@@ -1440,7 +1468,7 @@
   <span class="md-ellipsis">
     
   
-    Data Directory
+    Data Directory (PGDATA) — Setup &amp; Relocation
   
 
     
@@ -1468,7 +1496,7 @@
   <span class="md-ellipsis">
     
   
-    Backup & Archive
+    Backup Directory &amp; Archive Mode
   
 
     
@@ -1496,7 +1524,7 @@
   <span class="md-ellipsis">
     
   
-    Log Directory
+    Log Directory — Setup &amp; Configuration
   
 
     
@@ -1524,7 +1552,7 @@
   <span class="md-ellipsis">
     
   
-    pg_hba.conf
+    pg_hba.conf — Client Authentication
   
 
     
@@ -1552,7 +1580,7 @@
   <span class="md-ellipsis">
     
   
-    pg_ident.conf
+    pg_ident.conf &amp; Connection Settings
   
 
     
@@ -1641,7 +1669,7 @@
   <span class="md-ellipsis">
     
   
-    Production Layout
+    Production Cluster Layout — Greenfield Setup
   
 
     
@@ -1669,7 +1697,7 @@
   <span class="md-ellipsis">
     
   
-    Capacity Planning
+    Capacity Planning — Disk, RAM &amp; Connections
   
 
     
@@ -1697,7 +1725,7 @@
   <span class="md-ellipsis">
     
   
-    Cluster Management
+    Cluster &amp; Instance Management
   
 
     
@@ -1725,7 +1753,7 @@
   <span class="md-ellipsis">
     
   
-    Users & Roles
+    Users, Roles &amp; Privileges
   
 
     
@@ -1753,7 +1781,7 @@
   <span class="md-ellipsis">
     
   
-    Databases & Schemas
+    Databases, Schemas &amp; Objects
   
 
     
@@ -1870,7 +1898,7 @@
   <span class="md-ellipsis">
     
   
-    Logical Backup
+    Logical Backup — pg_dump &amp; pg_restore
   
 
     
@@ -1926,7 +1954,7 @@
   <span class="md-ellipsis">
     
   
-    pg_basebackup
+    pg_basebackup — Physical Base Backup
   
 
     
@@ -1954,7 +1982,7 @@
   <span class="md-ellipsis">
     
   
-    pgBackRest
+    pgBackRest — Backup &amp; Recovery
   
 
     
@@ -1982,7 +2010,7 @@
   <span class="md-ellipsis">
     
   
-    Point-in-Time Recovery
+    Point-in-Time Recovery (PITR)
   
 
     
@@ -2010,7 +2038,7 @@
   <span class="md-ellipsis">
     
   
-    DC / DR Drill
+    DC / DR Drill Runbook
   
 
     
@@ -2099,7 +2127,7 @@
   <span class="md-ellipsis">
     
   
-    PG 18 HA Runbook
+    PostgreSQL 18 HA — Production Setup Runbook
   
 
     
@@ -2127,7 +2155,7 @@
   <span class="md-ellipsis">
     
   
-    Replication Slots
+    Replication Slots — Management &amp; Troubleshooting
   
 
     
@@ -2155,7 +2183,7 @@
   <span class="md-ellipsis">
     
   
-    Streaming Replication
+    Streaming (Physical) Replication
   
 
     
@@ -2211,7 +2239,7 @@
   <span class="md-ellipsis">
     
   
-    Failover
+    Failover &amp; Switchover
   
 
     
@@ -2239,7 +2267,7 @@
   <span class="md-ellipsis">
     
   
-    Patroni & pgpool
+    Patroni, repmgr &amp; pgpool-II
   
 
     
@@ -2328,7 +2356,7 @@
   <span class="md-ellipsis">
     
   
-    In-Memory Features
+    In-Memory Features &amp; Integration
   
 
     
@@ -2356,7 +2384,7 @@
   <span class="md-ellipsis">
     
   
-    Tuning Parameters
+    Memory &amp; I/O Tuning Parameters
   
 
     
@@ -2384,7 +2412,7 @@
   <span class="md-ellipsis">
     
   
-    pgbench
+    pgbench — Load Testing &amp; Benchmarking
   
 
     
@@ -2412,7 +2440,7 @@
   <span class="md-ellipsis">
     
   
-    Session Timeouts
+    Session &amp; Timeout Tuning
   
 
     
@@ -2440,7 +2468,7 @@
   <span class="md-ellipsis">
     
   
-    VACUUM & Bloat
+    VACUUM, Bloat &amp; Storage
   
 
     
@@ -2468,7 +2496,7 @@
   <span class="md-ellipsis">
     
   
-    Indexing
+    Indexing Strategies
   
 
     
@@ -2496,7 +2524,7 @@
   <span class="md-ellipsis">
     
   
-    Query Optimization
+    Query Optimization &amp; EXPLAIN
   
 
     
@@ -2585,7 +2613,7 @@
   <span class="md-ellipsis">
     
   
-    DBA Health Checks
+    DBA Health Checks &amp; Monitoring Queries
   
 
     
@@ -2613,7 +2641,7 @@
   <span class="md-ellipsis">
     
   
-    System Catalogs
+    System Catalogs &amp; Views
   
 
     
@@ -2669,7 +2697,7 @@
   <span class="md-ellipsis">
     
   
-    Logging
+    Logging Configuration
   
 
     
@@ -2697,7 +2725,7 @@
   <span class="md-ellipsis">
     
   
-    Metrics Exporters
+    Prometheus / Grafana Exporters
   
 
     
@@ -2786,7 +2814,7 @@
   <span class="md-ellipsis">
     
   
-    Authentication
+    Authentication Methods
   
 
     
@@ -2814,7 +2842,7 @@
   <span class="md-ellipsis">
     
   
-    Encryption Methods
+    PostgreSQL Encryption Methods — Complete Reference
   
 
     
@@ -2842,7 +2870,7 @@
   <span class="md-ellipsis">
     
   
-    Encryption Overview
+    Encryption — Overview
   
 
     
@@ -2870,7 +2898,7 @@
   <span class="md-ellipsis">
     
   
-    SSL / TLS
+    SSL / TLS Implementation Guide
   
 
     
@@ -2898,7 +2926,7 @@
   <span class="md-ellipsis">
     
   
-    TDE
+    TDE &amp; Data-at-Rest Encryption Implementation
   
 
     
@@ -2926,7 +2954,7 @@
   <span class="md-ellipsis">
     
   
-    Row-Level Security
+    Row-Level Security (RLS)
   
 
     
@@ -2954,7 +2982,7 @@
   <span class="md-ellipsis">
     
   
-    Auditing
+    Auditing &amp; Compliance
   
 
     
@@ -3043,7 +3071,7 @@
   <span class="md-ellipsis">
     
   
-    DBA Runbook Checklists
+    DBA Runbook — Daily, Weekly &amp; Monthly Checklists
   
 
     
@@ -3071,7 +3099,7 @@
   <span class="md-ellipsis">
     
   
-    VACUUM & ANALYZE
+    VACUUM &amp; ANALYZE
   
 
     
@@ -3099,7 +3127,7 @@
   <span class="md-ellipsis">
     
   
-    Autovacuum
+    Autovacuum Tuning
   
 
     
@@ -3127,7 +3155,7 @@
   <span class="md-ellipsis">
     
   
-    Major Version Upgrade
+    Major Version Upgrade Guide
   
 
     
@@ -3155,7 +3183,7 @@
   <span class="md-ellipsis">
     
   
-    Upgrades Overview
+    Major &amp; Minor Upgrades — Overview
   
 
     
@@ -3244,7 +3272,7 @@
   <span class="md-ellipsis">
     
   
-    Partitioning
+    Table Partitioning
   
 
     
@@ -3300,7 +3328,7 @@
   <span class="md-ellipsis">
     
   
-    pgvector
+    pgvector — Vector Search &amp; AI Embeddings
   
 
     
@@ -3328,7 +3356,7 @@
   <span class="md-ellipsis">
     
   
-    pgAudit
+    pgAudit — Audit Logging Extension
   
 
     
@@ -3356,7 +3384,7 @@
   <span class="md-ellipsis">
     
   
-    pg_cron & pgAgent
+    pg_cron &amp; pgAgent — Job Scheduling
   
 
     
@@ -3384,7 +3412,7 @@
   <span class="md-ellipsis">
     
   
-    Custom Extensions
+    Creating Custom PostgreSQL Extensions
   
 
     
@@ -3412,7 +3440,7 @@
   <span class="md-ellipsis">
     
   
-    Locking & Concurrency
+    Locking &amp; Concurrency
   
 
     
@@ -3440,7 +3468,7 @@
   <span class="md-ellipsis">
     
   
-    WAL Internals
+    WAL &amp; Checkpoint Internals
   
 
     
@@ -3468,7 +3496,7 @@
   <span class="md-ellipsis">
     
   
-    Connection Pooling
+    Connection Pooling (PgBouncer &amp; pgpool)
   
 
     
@@ -3557,7 +3585,7 @@
   <span class="md-ellipsis">
     
   
-    Investigation Runbook
+    Investigation Runbook — Where to Start
   
 
     
@@ -3585,7 +3613,7 @@
   <span class="md-ellipsis">
     
   
-    Common Errors
+    Common Errors &amp; Fixes
   
 
     
@@ -3613,7 +3641,7 @@
   <span class="md-ellipsis">
     
   
-    Slow Queries
+    Slow Query Investigation
   
 
     
@@ -3641,7 +3669,7 @@
   <span class="md-ellipsis">
     
   
-    Corruption Recovery
+    Corruption Detection &amp; Recovery
   
 
     
@@ -3730,7 +3758,7 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    Cheat Sheets — Quick Reference Index
   
 
     
@@ -3758,7 +3786,7 @@
   <span class="md-ellipsis">
     
   
-    psql Reference
+    psql — Complete Reference (Basics &amp; Advanced)
   
 
     
@@ -3786,7 +3814,7 @@
   <span class="md-ellipsis">
     
   
-    CLI Commands
+    psql &amp; CLI Commands
   
 
     
@@ -3814,7 +3842,7 @@
   <span class="md-ellipsis">
     
   
-    Admin SQL
+    Essential Admin SQL
   
 
     
@@ -3842,7 +3870,7 @@
   <span class="md-ellipsis">
     
   
-    Parameters
+    Parameters Quick Reference
   
 
     
@@ -4096,6 +4124,9 @@
                   
 
 
+  
+  
+
 
 <h1 id="deploy-to-github-pages-step-by-step">Deploy to GitHub Pages — Step-by-Step<a class="headerlink" href="#deploy-to-github-pages-step-by-step" title="Permanent link">&para;</a></h1>
 <p>Publish this knowledge base as a website and link it from <a href="https://infrayantra.com/">InfraYantra Labs</a>.</p>
@@ -4133,7 +4164,7 @@
 <h2 id="part-1-upload-to-github">Part 1 — Upload to GitHub<a class="headerlink" href="#part-1-upload-to-github" title="Permanent link">&para;</a></h2>
 <h3 id="1-create-a-new-repository-on-github">1. Create a new repository on GitHub<a class="headerlink" href="#1-create-a-new-repository-on-github" title="Permanent link">&para;</a></h3>
 <ol>
-<li>Go to https://github.com/new</li>
+<li>Go to <a href="https://github.com/new">https://github.com/new</a></li>
 <li><strong>Repository name:</strong> <code>PostgreSQL-KnowledgeBase</code> (or <code>postgres-dba-kb</code>)</li>
 <li><strong>Public</strong> (required for free GitHub Pages on free plan)</li>
 <li>Do <strong>not</strong> add README, .gitignore, or license (you already have files locally)</li>
@@ -4306,8 +4337,8 @@
 <h2 id="infrayantra-branding">InfraYantra branding<a class="headerlink" href="#infrayantra-branding" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Logo: <code>assets/infrayantra-labs-logo.jpeg</code></li>
-<li>Company site: https://infrayantra.com/</li>
-<li>Contact: admin@infrayantra.com</li>
+<li>Company site: <a href="https://infrayantra.com/">https://infrayantra.com/</a></li>
+<li>Contact: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#100;&#109;&#105;&#110;&#64;&#105;&#110;&#102;&#114;&#97;&#121;&#97;&#110;&#116;&#114;&#97;&#46;&#99;&#111;&#109;">&#97;&#100;&#109;&#105;&#110;&#64;&#105;&#110;&#102;&#114;&#97;&#121;&#97;&#110;&#116;&#114;&#97;&#46;&#99;&#111;&#109;</a></li>
 <li>Theme color: InfraYantra indigo <code>#28248c</code></li>
 </ul>
 <hr />
@@ -4368,13 +4399,13 @@
         
         
           
-          <a href="../01-getting-started/installation/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
+          <a href="../01-getting-started/installation/" class="md-footer__link md-footer__link--next" aria-label="Next: Installation &amp;amp; Initialization — Overview">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Overview
+                Installation &amp; Initialization — Overview
               </div>
             </div>
             <div class="md-footer__button md-icon">
