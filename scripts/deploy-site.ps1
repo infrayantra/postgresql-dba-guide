@@ -44,6 +44,14 @@ try {
     }
 
     Write-Host "Deployed site/ to repo root for GitHub Pages."
+    Write-Host ""
+    Write-Host "Next steps to publish:"
+    Write-Host "  git add -A"
+    Write-Host "  git commit -m ""Update built site"""
+    Write-Host "  git push"
+    Write-Host ""
+    Write-Host "Local preview (exact GitHub Pages output): .\scripts\preview-site.ps1"
+    Write-Host "Local dev (edit markdown live):           .\scripts\serve-docs.ps1"
 }
 finally {
     Pop-Location
