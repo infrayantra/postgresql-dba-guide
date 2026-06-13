@@ -1,0 +1,35 @@
+/* PostgreSQL DBA Knowledge Base — InfraYantra Labs branding */
+
+:root {
+  /* InfraYantra Labs indigo (from logo) */
+  --md-primary-fg-color:        #28248c;
+  --md-primary-fg-color--light: #3d38a8;
+  --md-primary-fg-color--dark:  #1a1760;
+  --md-accent-fg-color:         #4a90d9;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #3d38a8;
+  --md-primary-fg-color--light: #524dc4;
+  --md-primary-fg-color--dark:  #28248c;
+}
+
+/* Logo in header — square logo with text */
+.md-header__button.md-logo img,
+.md-nav__button.md-logo img {
+  height: 2.25rem;
+  width: auto;
+}
+
+.md-typeset pre > code {
+  font-size: 0.78em;
+}
+
+.md-typeset table:not([class]) {
+  font-size: 0.85em;
+}
+
+/* InfraYantra footer link */
+.md-footer-meta md-footer-meta__inner a {
+  color: var(--md-accent-fg-color);
+}
