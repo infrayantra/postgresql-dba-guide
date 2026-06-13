@@ -1,0 +1,43 @@
+name: Deploy documentation site
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install MkDocs
+        run: pip install -r requirements-docs.txt
+
+      - name: Sync docs
+        run: |
+          mkdir -p docs-content
+          cp README.md INDEX.md VERSION.md WEBSITE.md GITHUB-PAGES.md docs-content/
+          for d in 01-getting-started 02-configuration 03-administration 04-backup-recovery \
+                   05-replication-ha 06-performance 07-monitoring 08-security 09-maintenance \
+                   10-advanced 11-troubleshooting cheat-sheets stylesheets assets; do
+            cp -r "$d" docs-content/
+          done
+
+      - name: Build site
+        run: mkdocs build --clean
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          force_orphan: true

@@ -1,0 +1,237 @@
+# PostgreSQL DBA Knowledge Base — static site (MkDocs Material)
+# Build:  mkdocs build    |    Preview:  mkdocs serve
+
+site_name: PostgreSQL DBA Guide
+site_description: Comprehensive PostgreSQL 18 reference for DBAs — by InfraYantra Labs
+site_author: InfraYantra Labs
+copyright: Copyright &copy; 2026 <a href="https://infrayantra.com/" target="_blank" rel="noopener">InfraYantra Labs</a> · PostgreSQL 18
+
+docs_dir: docs-content
+site_dir: site
+
+site_url: https://infrayantra.github.io/postgresql-dba-guide/
+repo_url: https://github.com/infrayantra/postgresql-dba-guide
+edit_uri: edit/main/docs-content/
+
+use_directory_urls: true
+strict: false
+
+exclude_docs: |
+  site/
+  docs-content/
+  .git/
+  .github/
+  .venv/
+  venv/
+  scripts/
+  requirements-docs.txt
+  mkdocs.yml
+  .gitignore
+
+theme:
+  name: material
+  language: en
+  logo: assets/infrayantra-labs-logo.jpeg
+  favicon: assets/infrayantra-labs-logo.jpeg
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - scheme: default
+      primary: custom
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Dark mode
+    - scheme: slate
+      primary: custom
+      accent: light blue
+      toggle:
+        icon: material/brightness-4
+        name: Light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
+  extra_css:
+    - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/solid/globe
+      link: https://infrayantra.com/
+      name: InfraYantra Labs
+    - icon: fontawesome/solid/envelope
+      link: mailto:admin@infrayantra.com
+      name: Contact
+    - icon: fontawesome/solid/book
+      link: https://www.postgresql.org/docs/18/
+      name: PostgreSQL 18 Docs
+    - icon: fontawesome/solid/download
+      link: https://www.postgresql.org/download/
+      name: Downloads
+  generator: false
+
+plugins:
+  - search:
+      separator: '[\s\-]+'
+  - tags
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+nav:
+  - Home: README.md
+  - Index: INDEX.md
+  - Version Policy: VERSION.md
+  - Website Guide: WEBSITE.md
+  - GitHub Pages Deploy: GITHUB-PAGES.md
+
+  - Getting Started:
+      - Overview: 01-getting-started/installation.md
+      - Official Downloads: 01-getting-started/official-download-links.md
+      - Linux Install: 01-getting-started/install-linux.md
+      - Windows Install: 01-getting-started/install-windows.md
+      - Docker: 01-getting-started/install-docker.md
+      - Kubernetes: 01-getting-started/install-kubernetes.md
+      - DBaaS / Managed: 01-getting-started/install-dbaas.md
+      - PostgreSQL 18 Features: 01-getting-started/postgresql-18.md
+      - History & Enterprise vs OSS: 01-getting-started/postgresql-history-and-releases.md
+      - Architecture: 01-getting-started/architecture.md
+      - Logical vs Physical: 01-getting-started/logical-vs-physical.md
+      - Version History: 01-getting-started/version-history.md
+
+  - Configuration:
+      - postgresql.conf: 02-configuration/postgresql-conf.md
+      - Data Directory: 02-configuration/data-directory.md
+      - Backup & Archive: 02-configuration/backup-archive-directories.md
+      - Log Directory: 02-configuration/log-directory.md
+      - pg_hba.conf: 02-configuration/pg-hba-conf.md
+      - pg_ident.conf: 02-configuration/pg-ident-conf.md
+
+  - Administration:
+      - Production Layout: 03-administration/production-cluster-layout.md
+      - Capacity Planning: 03-administration/capacity-planning.md
+      - Cluster Management: 03-administration/cluster-management.md
+      - Users & Roles: 03-administration/user-roles.md
+      - Databases & Schemas: 03-administration/databases-schemas.md
+      - Tablespaces: 03-administration/tablespaces.md
+
+  - Backup & Recovery:
+      - Logical Backup: 04-backup-recovery/logical-backup.md
+      - Physical Backup: 04-backup-recovery/physical-backup.md
+      - pg_basebackup: 04-backup-recovery/pg-basebackup.md
+      - pgBackRest: 04-backup-recovery/pg-backrest.md
+      - Point-in-Time Recovery: 04-backup-recovery/point-in-time-recovery.md
+      - DC / DR Drill: 04-backup-recovery/dc-dr-drill.md
+
+  - Replication & HA:
+      - PG 18 HA Runbook: 05-replication-ha/postgresql-18-ha-setup-runbook.md
+      - Replication Slots: 05-replication-ha/replication-slots.md
+      - Streaming Replication: 05-replication-ha/streaming-replication.md
+      - Logical Replication: 05-replication-ha/logical-replication.md
+      - Failover: 05-replication-ha/failover.md
+      - Patroni & pgpool: 05-replication-ha/patroni-pgpool.md
+
+  - Performance:
+      - In-Memory Features: 06-performance/in-memory-features-integration.md
+      - Tuning Parameters: 06-performance/tuning-parameters.md
+      - pgbench: 06-performance/pgbench.md
+      - Session Timeouts: 06-performance/session-timeouts.md
+      - VACUUM & Bloat: 06-performance/vacuum-bloat.md
+      - Indexing: 06-performance/indexing.md
+      - Query Optimization: 06-performance/query-optimization.md
+
+  - Monitoring:
+      - DBA Health Checks: 07-monitoring/dba-health-checks.md
+      - System Catalogs: 07-monitoring/system-catalogs.md
+      - pg_stat_statements: 07-monitoring/pg-stat-statements.md
+      - Logging: 07-monitoring/logging.md
+      - Metrics Exporters: 07-monitoring/metrics-exporters.md
+
+  - Security:
+      - Authentication: 08-security/authentication.md
+      - Encryption Methods: 08-security/encryption-methods.md
+      - Encryption Overview: 08-security/encryption.md
+      - SSL / TLS: 08-security/ssl-tls-implementation.md
+      - TDE: 08-security/tde-implementation.md
+      - Row-Level Security: 08-security/row-level-security.md
+      - Auditing: 08-security/auditing.md
+
+  - Maintenance:
+      - DBA Runbook Checklists: 09-maintenance/dba-runbook-checklists.md
+      - VACUUM & ANALYZE: 09-maintenance/vacuum-analyze.md
+      - Autovacuum: 09-maintenance/autovacuum.md
+      - Major Version Upgrade: 09-maintenance/major-version-upgrade.md
+      - Upgrades Overview: 09-maintenance/upgrades.md
+
+  - Advanced:
+      - Partitioning: 10-advanced/partitioning.md
+      - Extensions: 10-advanced/extensions.md
+      - pgvector: 10-advanced/pgvector.md
+      - pgAudit: 10-advanced/pgaudit.md
+      - pg_cron & pgAgent: 10-advanced/pg-cron-agent.md
+      - Custom Extensions: 10-advanced/creating-extensions.md
+      - Locking & Concurrency: 10-advanced/locking-concurrency.md
+      - WAL Internals: 10-advanced/wal-internals.md
+      - Connection Pooling: 10-advanced/connection-pooling.md
+
+  - Troubleshooting:
+      - Investigation Runbook: 11-troubleshooting/investigation-runbook.md
+      - Common Errors: 11-troubleshooting/common-errors.md
+      - Slow Queries: 11-troubleshooting/slow-queries.md
+      - Corruption Recovery: 11-troubleshooting/corruption-recovery.md
+
+  - Cheat Sheets:
+      - Overview: cheat-sheets/README.md
+      - psql Reference: cheat-sheets/psql-reference.md
+      - CLI Commands: cheat-sheets/psql-commands.md
+      - Admin SQL: cheat-sheets/admin-sql.md
+      - Parameters: cheat-sheets/parameters-quick-ref.md
